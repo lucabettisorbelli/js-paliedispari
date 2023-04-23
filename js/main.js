@@ -1,38 +1,44 @@
 
 // esercizio palindromo
 
-    // let parolaUtente = prompt("Iserisci una parola");
+    let parolaUtente = prompt("Iserisci una parola");
 
-    // let reverseWord = "";
-    // for (let i = parolaUtente.length -1; i >= 0; i--) {
-    //     reverseWord += parolaUtente[i];
-    // }
+    let reverseWord = "";
+    for (let i = parolaUtente.length -1; i >= 0; i--) {
+        reverseWord += parolaUtente[i];
+    }
 
-    // if (parolaUtente === reverseWord) {
-    //     console.log(`${parolaUtente} è palindroma`);
-    // } else {
-    //     console.log(`${parolaUtente} non è palindroma`);
-    // };
+    if (parolaUtente === reverseWord) {
+        console.log(`${parolaUtente} è palindroma`);
+    } else {
+        console.log(`${parolaUtente} non è palindroma`);
+    };
 
 
-//esercizio pari o dispari
+// esercizio pari o dispari
 
-let numeroUtente = parseInt(prompt("inserisci un numero da 1 a 5"));
-let pariDispariUtente = prompt("scegli pari o dispari");
+let bottone = document.getElementById("button");
+
+bottone.addEventListener ("click", function () {
+
+    let numeroUtente = parseInt(document.getElementById("sceltaUtente").value);
+    let pariDispariUtente = document.getElementById("pariDispari").value;
 
 if (numeroUtente <= 5 && numeroUtente >=1) {
-    console.log(`il numero ${numeroUtente} è corretto`);
     
     if ( numeroUtente % 2 == 0) {
-        console.log("hai scelto un numero pari");
+        let elementoPari = document.createElement("p");
+        elementoPari.textContent = "hai scelto un numero pari"
+        document.body.appendChild(elementoPari);
     } else {
-        console.log("hai scelto un numero dispari");
-        
+        let elementoDispari = document.createElement("p");
+        elementoDispari.textContent = "hai scelto un numero dispari"
+        document.body.appendChild(elementoDispari);
     } 
     } 
 
+
 function numeroRandom (min, max) {
-    
 
     let risultato = Math.floor(Math.random() * (max - min + 1) + min);
 
@@ -42,20 +48,34 @@ function numeroRandom (min, max) {
 
 
 let mioNumero = numeroRandom(1,5);
-console.log(`il mio numero generato è ${mioNumero}`);
+let elementoRandom = document.createElement("p");
+elementoRandom.textContent = (`il mio numero generato è ${mioNumero}`);
+document.body.appendChild(elementoRandom);
+// console.log(`il mio numero generato è ${mioNumero}`);
 
 let sommaNumeri = numeroUtente + mioNumero;
-console.log(sommaNumeri);
+let somma = document.querySelector("#somma");
+somma.innerText = `la somma dei numeri è ${sommaNumeri}`
+console.log(`la somma dei numeri è ${sommaNumeri}`);
 
 if (sommaNumeri % 2 == 0 && pariDispariUtente == "pari") {
+    let sommaNumeriPari = document.createElement ("p");
+    sommaNumeriPari.textContent = "ha vinto l'utente";
+    document.body.appendChild(sommaNumeriPari);
     console.log("ha vinto l'utente");
 } else if (sommaNumeri % 2 == 1 && pariDispariUtente == "dispari") {
+    let sommaNumeriDispari = document.createElement ("p");
+    sommaNumeriDispari.textContent = "ha vinto l'utente";
+    document.body.appendChild(sommaNumeriDispari);
     console.log("ha vinto l'utente");
 } else {
+    let sceltaComputer = document.createElement("p");
+    sceltaComputer.textContent = "ho vinto io!";
+    document.body.appendChild(sceltaComputer);
     console.log ("ho vinto io!");
 } ;
 
-
+});
 
 
 
